@@ -1,0 +1,284 @@
+
+/* сброс стилей браузера */
+* { box-sizing: border-box; }
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.2;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+} 
+ol { 
+	padding-left: 1.4em;
+	list-style: decimal;
+}
+ul {
+	padding-left: 1.4em;
+	list-style: square;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+/* конец кода сброса стилей браузера */
+/*header добавление фонового изображения*/
+.header{
+	width: 100%;
+	height: 300px;
+	background: url('images/o-JAPAN-TRAVEL.jpg') no-repeat center center;
+	background-size: cover;
+	background-color: rgba(255,255,255,.2);
+	background-blend-mode: screen;
+}
+/*Верхняя навигация с фиксированной позицией*/
+.header .nav{
+	position: fixed;
+	cursor: pointer;
+	background: linear-gradient(rgb(255,255,255)75%, rgba(255,255,255,.1));
+	width: 100%;
+	padding: 7px 0 13px 0;
+	margin-bottom: 50px;
+	z-index: 1000;/*z-index чтобы изображение не искажалось если список при выпадении перекрвает другие элементы*/
+}
+.header .nav input{
+	display: none;
+}
+/*прячу чекбох и списки*/
+
+.header .nav label{
+	cursor: pointer;
+}
+.header .nav ul {
+	display: none;
+}
+@media screen and (max-width: 550px){ 
+/*появление панели при нажатии на иконку только для мобильных*/
+.header .nav input:checked~ ul{
+	display: block;
+	background-color: rgba(255,255,255,.9);
+	
+	}
+}
+
+.header .nav li.focus:hover ul.more{
+	display: block;
+	background-color: rgba(255,255,255,.9);
+	padding: 0 10px;
+	
+}
+.header .nav li{
+	display: block;
+	border-top: solid 1px rgba(85, 73, 79,.3);
+	padding: 10px 0;
+
+}	
+/*стили панели mobile-first*/
+.header .nav ul{
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+.header .nav a{
+	text-decoration: none;
+	font: normal 1.2rem 'Roboto';
+	margin: 2px;
+	transition: all .2s ease;
+}
+.header .nav .more a{
+	font-size: 15px;
+}
+.header .nav a:link{
+	color: #383436;
+}
+.header .nav a:visited{/*уменьшаю размер ширифта выпадающего меню*/
+	color: #383436;
+}
+.header .nav a:hover{
+	color: rgba(199, 17, 110,.9);
+}
+.header .nav .contact{
+	position: fixed;
+	right: 3%;
+	top: 1%;
+	color: #C7116E;
+	font: normal 1.2rem 'Roboto';
+	transition: all .3s ease;
+}
+.header .nav .contact:hover{
+	transform: scale(1.1);
+	color: #D23886;
+}
+/*стили для заголовка h1*/
+.header .h1{
+	position: relative;
+	top: 40%;
+	left: 30%;
+}
+.header .h1 h1{
+	color: white;
+	font-family: 'Permanent Marker', cursive;
+	font-size: 4.5rem;
+}
+.header .h1 p{
+	color: white;
+	font: 600 1rem 'Open Sans';
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+/*создание стилей для планшетов*/
+
+@media  (min-width: 550px){
+
+	.header .nav {
+	background: linear-gradient(rgb(255,255,255)35%, rgba(255,255,255,.1));
+	width: 100%;
+	height: 70px;
+	margin: 0;
+	padding: 0;
+	
+	}
+
+	/*прячу иконку*/
+	.header .nav label{
+		display: none;
+	}
+	
+	/*создаю флексбокс навигацию из трех кнопок*/
+	.header .nav ul{
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: flex-start;
+
+	}
+	.header .nav li{
+		display: inline-block;
+
+	}
+	/*выпадающий список*/
+	.header .nav .more{
+		display: none;
+	}
+	
+	/*появление выпадающего списка только при наведении*/
+	.header .nav li.focus:hover .more ul{
+		display: block;
+		
+
+	}
+	.header .nav li.focus:hover .more li{
+		display: block;
+	}
+	/*свойства шрифта для ссылок*/
+	.header .nav .navigation a{
+		font:  16px 'Roboto';
+		margin: 0 10px 10px 0;
+		padding: 5px;
+	}
+	
+	/*убираю верхнюю границу*/
+	.header .nav li{
+		border-top: none;
+	}
+	/* свойства кнопок*/
+	.button,
+		button,
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"] {
+		  display: inline-block;
+		  height: 38px;
+		  padding: 0 30px;
+		  color: #555;
+		  text-align: center;
+		  font-size: 11px;
+		  font-weight: 600;
+		  line-height: 38px;
+		  letter-spacing: .1rem;
+		  text-transform: uppercase;
+		  text-decoration: none;
+		  white-space: nowrap;
+		  background-color: transparent;
+		  border-radius: 4px;
+		  border: 1px solid #bbb;
+		  cursor: pointer;
+		  box-sizing: border-box; }
+		.button:hover,
+		button:hover,
+		input[type="submit"]:hover,
+		input[type="reset"]:hover,
+		input[type="button"]:hover,
+		.button:focus,
+		button:focus,
+		input[type="submit"]:focus,
+		input[type="reset"]:focus,
+		input[type="button"]:focus {
+		  color: #333;
+		  border-color: #888;
+		  outline: 0; }
+		.button.button-primary,
+		button.button-primary,
+		input[type="submit"].button-primary,
+		input[type="reset"].button-primary,
+		input[type="button"].button-primary {
+		  color: #FFF;
+		  background-color: #33C3F0;
+		  border-color: #33C3F0; }
+		.button.button-primary:hover,
+		button.button-primary:hover,
+		input[type="submit"].button-primary:hover,
+		input[type="reset"].button-primary:hover,
+		input[type="button"].button-primary:hover,
+		.button.button-primary:focus,
+		button.button-primary:focus,
+		input[type="submit"].button-primary:focus,
+		input[type="reset"].button-primary:focus,
+		input[type="button"].button-primary:focus {
+		  color: #FFF;
+		  background-color: #1EAEDB;
+		  border-color: #1EAEDB; }
+
+	/*конец свойств кнопок*/
+}
+
+/*для десктопов с минимальной шириной 700px*/
+@media (min-width: 750px){
+	/*увеличиваю шрифт, поля и отступы ссылок панели навигации*/
+	.header .nav .navigation a{
+		font-size: 1.2rem;
+		margin: 0 25px;
+	}
+	/*стили для заголовка*/
+	.header .h1{
+	left: 40%;
+}
+.header .h1 h1{
+	color: white;
+	font-size: 6rem;
+}
+.header .h1 p{
+	color: white;
+	font: 600 1.1rem 'Open Sans';
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	
+}
+
+}
